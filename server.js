@@ -16,17 +16,21 @@ io.on('connection', (socket) => {
 
     socket.on('join-room', ({ room, name }) => {
         socket.join(room);
+
         if (!rooms[room]) rooms[room] = [];
         rooms[room].push({ id: socket.id, name });
+
         console.log(`${name} joined room ${room}`);
 
-        // Broadcast to other users
+        // Notify others in the room
         socket.to(room).emit('user-joined', name);
 
+        // Handle messages
         socket.on('message', (message) => {
             io.to(room).emit('message', { name, message });
         });
 
+        // Handle disconnect
         socket.on('disconnect', () => {
             rooms[room] = rooms[room].filter(user => user.id !== socket.id);
             socket.to(room).emit('user-left', name);
@@ -35,8 +39,9 @@ io.on('connection', (socket) => {
     });
 });
 
+// ✅ Fix: Serve index.html for any unknown route
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend', 'index.html')); // ✅ Serve index.html for any unknown route
+    res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
 
 const PORT = process.env.PORT || 3000;
