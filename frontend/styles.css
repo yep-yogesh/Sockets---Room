@@ -1,89 +1,58 @@
-/* General Styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  /* Container */
-  .container {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    width: 320px;
-    text-align: center;
-  }
-  
-  /* Headings */
-  h1 {
-    font-size: 24px;
-    color: #4CAF50;
-    margin-bottom: 20px;
-  }
-  
-  /* Buttons */
-  button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    margin: 10px 0;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    width: 100%;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  /* Input Box */
-  input[type="text"] {
-    width: calc(100% - 24px);
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    outline: none;
-  }
-  
-  input[type="text"]:focus {
-    border-color: #4CAF50;
-  }
-  
-  /* Chat Messages */
-  #messages {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    height: 150px;
-    overflow-y: auto;
-    margin-top: 20px;
-    font-size: 14px;
-    text-align: left;
-  }
-  
-  .message {
-    background-color: #e7f3fe;
-    padding: 8px;
-    border-radius: 6px;
-    margin-bottom: 5px;
-    word-wrap: break-word;
-  }
-  
-  .message.self {
-    background-color: #d1f7c4;
-    text-align: right;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  width: 320px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+input,
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #5c67f2;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #4a54e1;
+}
+
+#messages {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#messages div {
+  margin-bottom: 5px;
+}
+
+.hidden {
+  display: none;
+}

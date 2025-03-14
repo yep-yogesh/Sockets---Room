@@ -1,38 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chat Room</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Chat Room</title>
 </head>
 <body>
-  <h1>Welcome to the Chat Room</h1>
+    <div class="container">
+        <h1>Chat Room</h1>
+        <input type="text" id="nameInput" placeholder="Enter your name" />
+        <button id="createRoomBtn">Create Room</button>
+        <input type="text" id="roomCodeInput" placeholder="Enter room code" />
+        <button id="joinRoomBtn">Join Room</button>
 
-  <div id="nameSection">
-    <input type="text" id="nameInput" placeholder="Enter your name" />
-    <button onclick="setName()">Set Name</button>
-  </div>
-
-  <div id="mainSection" style="display: none;">
-    <button onclick="createRoom()">Create Room</button>
-    <button onclick="showJoinRoom()">Join Room</button>
-    
-    <div id="joinRoomSection" style="display: none;">
-      <input type="text" id="roomCodeInput" placeholder="Enter Room Code" />
-      <button onclick="joinRoom()">Join</button>
+        <div id="chatBox" style="display: none;">
+            <div id="messages"></div>
+            <input type="text" id="messageInput" placeholder="Type a message..." />
+            <button id="sendBtn">Send</button>
+        </div>
     </div>
 
-    <p id="roomCodeDisplay"></p>
-  </div>
-
-  <div id="chatSection" style="display: none;">
-    <p id="chatRoomCode"></p>
-    <div id="messages"></div>
-    <input type="text" id="messageInput" placeholder="Type a message..." />
-    <button onclick="sendMessage()">Send</button>
-  </div>
-
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="script.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
